@@ -9,6 +9,11 @@
 
 在项目中使用 斐波那契数列函数 来模拟 CPU 密集型任务，其次使用 setTimeout() 方法使得 Fibo 函数不立即执行，而且交由 Node.js 系统来调度。
 
+# 需要了解的内容
+- cluster 模块
+- bluebird 模块
+- nodejs Event Loop 执行顺序
+
 # 结构
 - demo0: 使用 异步 
 - demo1: 多线程服务

@@ -21,6 +21,7 @@ function exuteFibo() {
         wk.send(collection[i]);
       }
       cluster.on('fork', function (worker) {
+        // 判断 worker.id 是否存在与 workerID 中
         if (workerID.indexOf(worker.id) !== -1) {
           console.log(`[master ${process.pid}] : fork worker
           ${worker.id}`);

@@ -5,17 +5,17 @@ module.exports = exuteFibo;
 function exuteFibo() {
   return (new Promise(
     function (reslove, reject) {
-      var cluster = require('cluster');
-      var result = [];
+      const cluster = require('cluster');
+      const result = [];
       cluster.setupMaster({
         exec: 'worker.js',
         slient: true
       });
 
-      var collection = [44, 42, 42, 43];
-      var st = Date.now();
-      for (var i = 0; i < Math.min(numCPUs, collection.length); i++) {
-        var wk = cluster.fork();
+      const collection = [44, 42, 42, 43];
+      const st = Date.now();
+      for (const i = 0; i < Math.min(numCPUs, collection.length); i++) {
+        const wk = cluster.fork();
         wk.send(collection[i]);
       }
       cluster.on('fork', function (worker) {
@@ -34,6 +34,7 @@ function exuteFibo() {
           if (numOfCompelete === collection.length) {
             console.log(`[master] finish all work and using
         ${Date.now() - st} ms`);
+            // 此处使用 disconnect() 来关闭，会导致 2 个 master 进程fork出来的子进程全部被关闭
             cluster.disconnect();
             reslove(result);
           }
