@@ -1,5 +1,7 @@
 # 简介 
-参考文章：https://www.ibm.com/developerworks/cn/opensource/os-cn-nodejs-practice/index.html
+参考文章：
+- https://www.ibm.com/developerworks/cn/opensource/os-cn-nodejs-practice/index.html
+- http://nodejs.cn/api/cluster.html#cluster_cluster_setupmaster_settings
 
 本项目主要内容为：使用 node - cluster 的 多线程处理方案， 解决 CPU 密集型问题。
 
